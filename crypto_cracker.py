@@ -8,7 +8,7 @@ def cracker(plain_text, ciper_text):
 
     plain_text = plain_text.upper().replace(" ", "")
     if len(plain_text) % 2 != 0:
-        plain_text += "X"  # Padding to make it even for 2x2 blocks
+        plain_text += "X"
 
 
     plain_text = plain_text.replace(" ", "")
