@@ -152,7 +152,7 @@ def hill_2x2(text, key_matrix, mode='encrypt'):
 
         # Matrix Multiplication Logic:
         # new_p1 = (a*p1 + b*p2) % 26
-        # new_p2 = (c*p1 + d*p2) % 26 Helo
+        # new_p2 = (c*p1 + d*p2) % 26
         c1 = (a * p1 + b * p2) % 26
         c2 = (c * p1 + d * p2) % 26
 
