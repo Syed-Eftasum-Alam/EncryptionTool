@@ -6,7 +6,7 @@ msg= msg.replace(" ","")
 
 
 if(algo==1):
-  shift = int(input("Enter The Key value : "))
+  shift = 3
   ask_mode = input("Enter E to Encrypt or D to Decrypt : ")
   if(ask_mode == 'E'):
     encrypt = caesar(msg,shift,'encrypt')

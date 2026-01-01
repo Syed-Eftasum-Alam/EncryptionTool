@@ -1,19 +1,7 @@
 import numpy as np
 from mapping import *
+from functions import *
 
-def extended_gcd(a, b):
-    if a == 0:
-        return b, 0, 1
-    else:
-        gcd, x, y = extended_gcd(b % a, a)
-        return gcd, y - (b // a) * x, x
-
-def mod_inverse(a, m):
-    gcd, x, y = extended_gcd(a, m)
-    if gcd != 1:
-        return None  # Inverse doesn't exist
-    else:
-        return x % m
 
 
 def cracker(plain_text, ciper_text):
@@ -34,13 +22,12 @@ def cracker(plain_text, ciper_text):
     for i in ciper_text:
         ciper_numbs.append(char_to_num[i])
 
-    print(ciper_numbs)
+
 
     ciper_matrix = np.array(ciper_numbs).reshape(2,2).T
     plaint_matrix = np.array(plain_num).reshape(2,2).T
 
-    print(plaint_matrix)
-    print(ciper_matrix)
+
 
     adj_ciper = np.array([
         [plaint_matrix[1][1], plaint_matrix[0][1] * -1],
@@ -58,5 +45,7 @@ def cracker(plain_text, ciper_text):
     key = (np.matmul(ciper_matrix, inverse)) % 26
     return key
 
-Key = cracker('Hell', 'HIOZ')
+p_text = input("Enter Text : ")
+c_text = input("Enter Cipher Text : ")
+Key = cracker(p_text, c_text)
 print(Key)
