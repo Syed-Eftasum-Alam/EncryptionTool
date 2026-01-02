@@ -1,6 +1,6 @@
 # Encryption Tool with Crypto Cracker (Hill Cipher)
 
-This project is an encryption tool implemented in **Python** that supports the **Hill Cipher** algorithm. It also includes a **Crypto Cracker** module capable of performing a **Known Plaintext Attack** on the Hill Cipher.
+This project is an encryption tool implemented in **Python** that supports the **Ceaser Cipher, Affine Cipher, Playfair Cipher and 2*2 Hill Cipher** algorithm. It also includes a **Crypto Cracker** module capable of performing a **Known Plaintext Attack** on the Hill Cipher.
 
 ---
 
