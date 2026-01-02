@@ -8,12 +8,16 @@ This project is an encryption tool implemented in **Python** that supports the *
 
 - Python 3.x installed with numpy on your system
 - Pip version 25.3 is required and numpy also required to run the crypto_cracker.py file.
+  ```bash
+  pip install numpy
 - Any Python-compatible IDE or code editor (e.g., VS Code, PyCharm)
 
 ## Prerequisites for Mac OS
 
 - macOS 10.13 or later  
-- Python 3.x installed with numpy     
+- Python 3.x installed with numpy.
+  ```bash
+  pip3 install numpy  
 - Terminal or any Python IDE (VS Code, PyCharm, etc.)
 
 The program is cross-platform and works on **Windows**, **macOS**, and **Linux**.
