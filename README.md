@@ -4,11 +4,17 @@ This project is an encryption tool implemented in **Python** that supports the *
 
 ---
 
-## Prerequisites
+## Prerequisites for windows
 
 - Python 3.x installed on your system
 - Pip version 25.3 is required and numpy also required to run the crypto_cracker.py file.
 - Any Python-compatible IDE or code editor (e.g., VS Code, PyCharm)
+
+## Prerequisites for Mac OS
+
+- macOS 10.13 or later  
+- Python 3.x installed  
+- Terminal or any Python IDE (VS Code, PyCharm, etc.)
 
 The program is cross-platform and works on **Windows**, **macOS**, and **Linux**.
 
@@ -20,7 +26,11 @@ The program is cross-platform and works on **Windows**, **macOS**, and **Linux**
 2. Open the project in your preferred IDE.
 3. Run the main program file to start the encryption process:
    ```bash
+   For windows : 
    python main.py
+   for macOS:
+   python3 main.py
+
 4. To conduct the known plain text attack with the crypto cracker tool, run :
    ```bash
    python crypto_cracker.py
