@@ -16,7 +16,6 @@ def cracker(plain_text, ciper_text):
     for i in plain_text:
         plain_num.append(char_to_num[i])
 
-
     ciper_numbs=[]
     ciper_text = ciper_text.upper().replace(" ", "")
     for i in ciper_text:
@@ -24,8 +23,10 @@ def cracker(plain_text, ciper_text):
 
 
 
-    ciper_matrix = np.array(ciper_numbs).reshape(2,2).T
-    plaint_matrix = np.array(plain_num).reshape(2,2).T
+    ciper_matrix = np.array(ciper_numbs).reshape(2,2)
+    print( ciper_matrix)
+    plaint_matrix = np.array(plain_num).reshape(2,2)
+    print( plaint_matrix)
 
 
 
@@ -33,16 +34,19 @@ def cracker(plain_text, ciper_text):
         [plaint_matrix[1][1], plaint_matrix[0][1] * -1],
         [plaint_matrix[1][0] * -1, plaint_matrix[0][0]]
     ])
+    # print( 'Adjoint Matrix: \n', adj_ciper)
 
     det = (plaint_matrix[0][0] * plaint_matrix[1][1] - plaint_matrix[0][1] * plaint_matrix[1][0])
     mi = mod_inverse(det, 26)
+    
+    print( 'Modular Inverse of Determinant:', mi)
     if mi:
         inverse = (mi * adj_ciper) % 26
+        key = np.matmul(inverse, ciper_matrix) % 26
     else :
         print("Inverse not possible of the plain Text")
         return None
-
-    key = (np.matmul(ciper_matrix, inverse)) % 26
+    
     return key
 
 p_text = input("Enter Text : ")

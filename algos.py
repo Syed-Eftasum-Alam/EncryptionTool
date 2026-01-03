@@ -126,36 +126,40 @@ def hill_2x2(text, key_matrix, mode='encrypt'):
     # Clean text
     text = text.upper().replace(" ", "")
     if len(text) % 2 != 0:
-        text += "X"  # Padding to make it even for 2x2 blocks
+        text += "X" 
 
-    # Setup the Key Matrix [[a, b], [c, d]]
+ 
     a, b = key_matrix[0]
     c, d = key_matrix[1]
+    
+    print( 'Key Matrix:', key_matrix)
 
     if mode == 'decrypt':
-        # 1. Calculate Determinant (ad - bc)
-        det = (a * d - b * c) % 26
 
+        det = (a * d - b * c) % 26
         det_inv = mod_inverse(det, 26)
         if det_inv is None:
             return "Error: Determinant has no inverse (invalid key)."
 
-        # 3. Create Inverse Matrix: det_inv * [[d, -b], [-c, a]]
+  
         a, b, c, d = (d * det_inv) % 26, (-b * det_inv) % 26, (-c * det_inv) % 26, (a * det_inv) % 26
 
     result = ""
     # Process text in pairs
     for i in range(0, len(text), 2):
-        # Convert pair to numbers
+
         p1 = char_to_num[text[i]]
         p2 = char_to_num[text[i+1]]
+        pair_matrix = [p1, p2]
 
-        # Matrix Multiplication Logic:
-        # new_p1 = (a*p1 + b*p2) % 26
-        # new_p2 = (c*p1 + d*p2) % 26
-        c1 = (a * p1 + b * p2) % 26
-        c2 = (c * p1 + d * p2) % 26
+  
+        
+        res_0 = ((pair_matrix[0] * key_matrix[0][0]) + (pair_matrix[1] * key_matrix[1][0])) % 26
+        res_1 = ((pair_matrix[0] * key_matrix[0][1]) + (pair_matrix[1] * key_matrix[1][1])) % 26  
+   
+  
 
-        result += num_to_char[c1] + num_to_char[c2]
+        result += num_to_char[res_0] + num_to_char[res_1]
+       
 
     return result
