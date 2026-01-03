@@ -24,11 +24,7 @@ def cracker(plain_text, ciper_text):
 
 
     ciper_matrix = np.array(ciper_numbs).reshape(2,2)
-    print( ciper_matrix)
     plaint_matrix = np.array(plain_num).reshape(2,2)
-    print( plaint_matrix)
-
-
 
     adj_ciper = np.array([
         [plaint_matrix[1][1], plaint_matrix[0][1] * -1],
@@ -39,7 +35,7 @@ def cracker(plain_text, ciper_text):
     det = (plaint_matrix[0][0] * plaint_matrix[1][1] - plaint_matrix[0][1] * plaint_matrix[1][0])
     mi = mod_inverse(det, 26)
     
-    print( 'Modular Inverse of Determinant:', mi)
+    # print( 'Modular Inverse of Determinant:', mi)
     if mi:
         inverse = (mi * adj_ciper) % 26
         key = np.matmul(inverse, ciper_matrix) % 26
@@ -52,4 +48,4 @@ def cracker(plain_text, ciper_text):
 p_text = input("Enter Text : ")
 c_text = input("Enter Cipher Text : ")
 Key = cracker(p_text, c_text)
-print(Key)
+print('Key = \n', Key)

@@ -138,12 +138,14 @@ def hill_2x2(text, key_matrix, mode='encrypt'):
 
         det = (a * d - b * c) % 26
         det_inv = mod_inverse(det, 26)
+ 
         if det_inv is None:
             return "Error: Determinant has no inverse (invalid key)."
 
   
         a, b, c, d = (d * det_inv) % 26, (-b * det_inv) % 26, (-c * det_inv) % 26, (a * det_inv) % 26
-
+        key_matrix = [[a, b], [c, d]]
+        
     result = ""
     # Process text in pairs
     for i in range(0, len(text), 2):
