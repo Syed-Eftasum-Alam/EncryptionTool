@@ -12,14 +12,10 @@ def caesar(text, shift, mode='encrypt'):
 
     for char in text:
         if char in char_to_num:
-            # 1. Lookup the number
             number = char_to_num[char]
-            # 2. Shift and Wrap around 26
             shifted_number = (number + shift) % 26
-            # 3. Lookup the new letter
             result += num_to_char[shifted_number]
         else:
-            # Keep spaces/symbols as they are
             result += char
 
     return result
@@ -39,27 +35,19 @@ def affine_ciper(text, a, b, mode='encrypt'):
       if mode=='decrypt':
         for char in text:
             if char in char_to_num:
-                # 1. Lookup the number
                 number = char_to_num[char]
-                # 2. Shift and Wrap around 26
                 decrypted_value = (mod_inverse(a,26) * (number-b)) % 26
-                # 3. Lookup the new letter
                 result += num_to_char[decrypted_value]
             else:
-                # Keep spaces/symbols as they are
                 result += char
 
       else:
         for char in text:
             if char in char_to_num:
-                # 1. Lookup the number
                 number = char_to_num[char]
-                # 2. Shift and Wrap around 26
                 encrypted_value = ((number * a)+b) % 26
-                # 3. Lookup the new letter
                 result += num_to_char[encrypted_value]
             else:
-                # Keep spaces/symbols as they are
                 result += char
 
       return result
@@ -123,7 +111,6 @@ def playfair_simple(text, key, mode='encrypt'):
 
 def hill_2x2(text, key_matrix, mode='encrypt'):
 
-    # Clean text
     text = text.upper().replace(" ", "")
     if len(text) % 2 != 0:
         text += "X" 
@@ -147,7 +134,7 @@ def hill_2x2(text, key_matrix, mode='encrypt'):
         key_matrix = [[a, b], [c, d]]
         
     result = ""
-    # Process text in pairs
+
     for i in range(0, len(text), 2):
 
         p1 = char_to_num[text[i]]

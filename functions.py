@@ -16,6 +16,6 @@ def extended_gcd(a, b):
 def mod_inverse(a, m):
     gcd, x, y = extended_gcd(a, m)
     if gcd != 1:
-        return None  # Inverse doesn't exist
+        return None
     else:
         return x % m
