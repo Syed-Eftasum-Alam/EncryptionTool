@@ -44,5 +44,6 @@ The program is cross-platform and works on **Windows**, **macOS**, and **Linux**
    ```bash
    python3 crypto_cracker.py
 
-
+You can view and run the Colab notebook for this project here:  
+🔗 [https://colab.research.google.com/drive/1b5kyThg_cui18NQfsD0LHEBEsJR2puPH?usp=sharing](https://colab.research.google.com/drive/1b5kyThg_cui18NQfsD0LHEBEsJR2puPH?usp=sharing)
    
